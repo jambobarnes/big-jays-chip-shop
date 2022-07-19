@@ -74,7 +74,7 @@ const BasketProvider: any = ({ children }:any) => {
       setBasketCosts({
         discountsTotal: totals.totalMealDealDiscount,
         discounts: [{
-          discountName: 'Pie & Chips £5 Meal Deal',
+          discountName: 'Pie & Chips 4 Meal Deal',
           discountAmount: 1,
           discountQty: totals.mealDealQty
         }],
@@ -98,7 +98,7 @@ const BasketProvider: any = ({ children }:any) => {
     setBasketCosts({
       discountsTotal: totals.totalMealDealDiscount,
       discounts: [{
-        discountName: 'Pie & Chips £5 Meal Deal',
+        discountName: 'Pie & Chips £4 Meal Deal',
         discountAmount: 1,
         discountQty: totals.mealDealQty
       }],

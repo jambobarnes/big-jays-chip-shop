@@ -9,7 +9,7 @@ export default function MealDealBanner() {
         </div>
         <div className="ml-3">
           <p className="text-md sm:text-lg font-bold text-chip-red">Hungry? Check out our meal deal...</p>
-          <p className="text-md sm:text-lg text-yellow-800">Order any pie and a portion of chunky chips for just £5.00 - that's 20% off!</p>
+          <p className="text-md sm:text-lg text-yellow-800">Order any pie and a portion of chunky chips for just £4.00 - that's 20% off!</p>
         </div>
       </div>
     </div>

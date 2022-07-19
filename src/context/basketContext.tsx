@@ -36,8 +36,6 @@ const BasketProvider: any = ({ children }:any) => {
 
       const totals = basketTotals([...basket, productToAdd])
 
-      console.log(totals);
-
       setBasketCosts({
         discountsTotal: totals.totalMealDealDiscount,
         discounts: [{
@@ -94,7 +92,6 @@ const BasketProvider: any = ({ children }:any) => {
     const basket = basketContents;
 
     const newBasket = basket.filter((x) => x.basketId !== product.basketId)
-    console.log('NEW BASKET', newBasket)
 
     const totals = basketTotals(newBasket)
 

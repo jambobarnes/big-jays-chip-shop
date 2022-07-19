@@ -45,8 +45,7 @@ export const checkExpiryToday = (productData: SingleProduct[]): SingleProduct[] 
     }
 
   }
-
-  console.log('AMENDED PRODS', amendedProducts);
+  
   return amendedProducts
 
 }

@@ -1,46 +1,58 @@
-# Getting Started with Create React App
+## The Big Chipper
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Big Chipper is a React app used to demo core React.js concepts. The application is a mock-up storefront for a fish & chip shop, allowing users to select items, add them to their basket and benefit from predefined discounts.
 
-## Available Scripts
+*Note on tests:* Due to time constraints, the application does not include any useful tests: the priority in the end was to deliver a functional demo.
 
-In the project directory, you can run:
+The application has been deployed and is available at [thebigchipper.sharpcircle.co.uk](https://thebigchipper.sharpcircle.co.uk/). Hosted with Vercel.
 
-### `npm start`
+### Responsive Design
+The application is suitable for use on a range of devices, but this has not been fully tested.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
+- Frontend SPA allows users to browse a catalogue of products and add them to the basket
+- Discounts for a meal deal are automatically applied to a users basket
+- Products become unavailable after their expiry date.
+- Products are discounted by 50% on the day of their expiry.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Dependencies 
+- React.js (create-react-app) + Typescript
+- Tailwind CSS (+ Aspect Ration plugin)
+- Headless UI - modal helper
+- Heroicons - various icons throughout the UI
+- React-toastify - toast notifications on add to/remove from basket
+- React Testing Library - see note on tests above
+  
+## Running
+The application is self-contained and does not require any external services (DB, etc) to be deployed.
 
-### `npm test`
+### Setup 
+```console
+git clone https://github.com/jambobarnes/the-big-chipper
+cd the-big-chipper
+npm i
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Development 
+```console
+npm run start
 
-### `npm run build`
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Test
+```console
+npm run test
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Building & Production 
+```console
+npm run build
+```
 
-### `npm run eject`
+## Environment Variables
+No environment configuration is required.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Copyright Notice
+The images included in this application are borrowed from various public sources from across the internet. No copyright infringement is intended. This project is for educational use only.

@@ -7,7 +7,8 @@ export const productData = [
     "price": 1.8,
     "mealDeal": true,
     "image": "https://sharp-circle-media-assets.s3.eu-west-2.amazonaws.com/chips.png",
-    "expiryDate": null
+    "expiryDate": null,
+    "salePrice": 1.8
   },
   {
     "id": "prod2",
@@ -17,7 +18,8 @@ export const productData = [
     "price": 1.8,
     "mealDeal": false,
     "image": "https://sharp-circle-media-assets.s3.eu-west-2.amazonaws.com/mash.png",
-    "expiryDate": null
+    "expiryDate": null,
+    "salePrice": 1.8
   },
   {
     "id": "prod3",
@@ -27,7 +29,8 @@ export const productData = [
     "price": 3.2,
     "mealDeal": true,
     "image": "https://sharp-circle-media-assets.s3.eu-west-2.amazonaws.com/steak-mushroom.png",
-    "expiryDate": "2022-07-15"
+    "expiryDate": "2022-07-15",
+    "salePrice": 1.6
   },
   {
     "id": "prod4",
@@ -37,7 +40,8 @@ export const productData = [
     "price": 3.2,
     "mealDeal": true,
     "image": "https://sharp-circle-media-assets.s3.eu-west-2.amazonaws.com/chicken-leek.png",
-    "expiryDate": "2022-07-20"
+    "expiryDate": "2022-07-20",
+    "salePrice": 1.6
   },
   {
     "id": "prod5",
@@ -47,7 +51,8 @@ export const productData = [
     "price": 3.2,
     "mealDeal": true,
     "image": "https://sharp-circle-media-assets.s3.eu-west-2.amazonaws.com/steak-guinness.png",
-    "expiryDate": "2022-07-25"
+    "expiryDate": "2022-07-25",
+    "salePrice": 1.6
   },
   {
     "id": "prod6",
@@ -57,7 +62,8 @@ export const productData = [
     "price": 3.2,
     "mealDeal": true,
     "image": "https://sharp-circle-media-assets.s3.eu-west-2.amazonaws.com/goats-cheese.png",
-    "expiryDate": "2022-07-26"
+    "expiryDate": "2022-07-21",
+    "salePrice": 1.6
   },
   {
     "id": "prod7",
@@ -67,7 +73,8 @@ export const productData = [
     "price": 2.0,
     "mealDeal": false,
     "image": "https://sharp-circle-media-assets.s3.eu-west-2.amazonaws.com/onion-loaf.png",
-    "expiryDate": null
+    "expiryDate": null,
+    "salePrice": 2.0
   },
   {
     "id": "prod8",
@@ -77,7 +84,8 @@ export const productData = [
     "price": 1.6,
     "mealDeal": false,
     "image": "https://sharp-circle-media-assets.s3.eu-west-2.amazonaws.com/beans.png",
-    "expiryDate": null
+    "expiryDate": null,
+    "salePrice": 1.6
   },
   {
     "id": "prod9",
@@ -87,7 +95,8 @@ export const productData = [
     "price": 1.4,
     "mealDeal": false,
     "image": "https://sharp-circle-media-assets.s3.eu-west-2.amazonaws.com/minty-peas.png",
-    "expiryDate": null
+    "expiryDate": null,
+    "salePrice": 1.4
   },
   {
     "id": "prod10",
@@ -97,7 +106,8 @@ export const productData = [
     "price": 2.5,
     "mealDeal": false,
     "image": "https://sharp-circle-media-assets.s3.eu-west-2.amazonaws.com/baby-potatoes.png",
-    "expiryDate": null
+    "expiryDate": null,
+    "salePrice": 2.5
   },
   {
     "id": "prod11",
@@ -107,7 +117,8 @@ export const productData = [
     "price": 6.5,
     "mealDeal": false,
     "image": "https://sharp-circle-media-assets.s3.eu-west-2.amazonaws.com/fish.png",
-    "expiryDate": null
+    "expiryDate": null,
+    "salePrice": 6.5
   },
   {
     "id": "prod12",
@@ -117,7 +128,8 @@ export const productData = [
     "price": 4.5,
     "mealDeal": false,
     "image": "https://sharp-circle-media-assets.s3.eu-west-2.amazonaws.com/scampi.png",
-    "expiryDate": null
+    "expiryDate": null,
+    "salePrice": 4.5
   },
   {
     "id": "prod13",
@@ -127,6 +139,7 @@ export const productData = [
     "price": 2.5,
     "mealDeal": false,
     "image": "https://sharp-circle-media-assets.s3.eu-west-2.amazonaws.com/battered-sausage.png",
-    "expiryDate": null
+    "expiryDate": null,
+    "salePrice": 2.5
   }
 ]

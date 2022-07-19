@@ -1,11 +1,27 @@
-import { checkExpired } from "../../lib/helpers/checkExpiry";
+import { useContext } from "react";
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { BasketContext } from "../../context/basketContext";
+import { checkExpired, checkExpiryToday } from "../../lib/helpers/checkExpiry";
 import { formatter } from "../../lib/helpers/formatter";
-import { ProductGridProps } from "../../lib/types/ProductProps";
-import AddToBasket from "./AddToBasket";
+import { BasketProduct, BasketProductContextType } from "../../lib/types/Basket.d";
+import { ProductGridProps } from "../../lib/types/Products.d";
 import CategoryHeader from "./CategoryHeader";
 
 export default function ProductGrid({ products, categories }: ProductGridProps) {
+
+  const { addProductToBasket } = useContext(BasketContext) as BasketProductContextType
+
+  const handleAddToBasket = (e: React.MouseEvent<HTMLElement>, product: BasketProduct | any) => {
+    addProductToBasket(product)
+    toast.success(`1 x ${product.name} added to basket`)
+  }
+
+  // override product price if any item's expiry date is today
+  products = checkExpiryToday(products);
+
   return (
+    <>
     <div className="bg-white">
       <div className="max-w-2xl mx-auto pb-16 pt-8 px-4 sm:pb-24 sm:pt-12 sm:px-6 lg:max-w-7xl lg:px-8">
         {categories.map((category) => (
@@ -33,7 +49,24 @@ export default function ProductGrid({ products, categories }: ProductGridProps) 
                       }
                       <p className="my-2 text-lg font-bold text-gray-900">{formatter.format(product.price)}</p>
                       <p className="mb-4 text-md text-gray-500">{product.description}</p>
-                      <AddToBasket expired={checkExpired(product.expiryDate)} />
+                      <div>
+                        {checkExpired(product.expiryDate) ?
+                          <button
+                            type="button"
+                            className="disabled cursor-not-allowed inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-gray-600 bg-gray-200"
+                          >
+                            Back Soon!
+                          </button>
+                          :
+                          <button
+                            type="button"
+                            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-chip-red hover:bg-chip-darkred focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            onClick={(e) => handleAddToBasket(e, product)}
+                          >
+                            Add to Basket
+                          </button>
+                        }
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -43,5 +76,16 @@ export default function ProductGrid({ products, categories }: ProductGridProps) 
         ))}
       </div>
     </div>
+    <ToastContainer
+        position="bottom-right"
+        autoClose={2500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        pauseOnHover
+      />
+    </>
   )
 }

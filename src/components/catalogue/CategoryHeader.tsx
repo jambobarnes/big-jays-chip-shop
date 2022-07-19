@@ -1,4 +1,4 @@
-import { SingleCategory } from "../../lib/types/CategoryProps"
+import { SingleCategory } from "../../lib/types/Category.d"
 
 const CategoryHeader = ({ name, description, id }: SingleCategory) => {
   return (

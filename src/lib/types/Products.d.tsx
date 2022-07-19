@@ -1,4 +1,4 @@
-import { SingleCategory } from "./CategoryProps";
+import { SingleCategory } from "./Category.d";
 
 // Single product
 export interface SingleProduct {
@@ -10,6 +10,7 @@ export interface SingleProduct {
   mealDeal: boolean;
   image: string;
   expiryDate: string | null;
+  salePrice: number;
 }
 
 // Products props

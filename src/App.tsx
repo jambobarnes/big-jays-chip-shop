@@ -1,24 +1,26 @@
 import Footer from './components/layouts/Footer';
 import MainContent from './components/layouts/MainContent';
 import NavBar from './components/layouts/NavBar';
+import BasketProvider from './context/basketContext';
 
-function App() {
+export default function App() {
 
   return (
-    <div className="app">
-      <header id="header">
-        <NavBar />
-      </header>
+    <BasketProvider>
+      <div className="app">
+        <header id="header">
+          <NavBar />
+        </header>
 
-      <main id="main-content">
-        <MainContent />
-      </main>
+        <main id="main-content">
+          <MainContent />
+        </main>
 
-      <footer id="footer">
-        <Footer />
-      </footer>
-    </div>
+        <footer id="footer">
+          <Footer />
+        </footer>
+      </div>
+    </BasketProvider>
   );
-}
-
-export default App;
+  
+};

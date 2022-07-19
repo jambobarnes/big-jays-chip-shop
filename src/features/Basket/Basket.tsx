@@ -1,11 +1,15 @@
-import { Fragment } from 'react'
+import { Fragment, useContext } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
-import { productData } from '../../data/products'
-import { OpenState } from '../../lib/types/state'
+import { OpenState } from '../../lib/types/Transitions.d'
+import { BasketContext } from '../../context/basketContext'
+import { BasketDiscounts, BasketProductContextType } from '../../lib/types/Basket.d'
+import BasketProducts from './BasketProducts'
 import { formatter } from '../../lib/helpers/formatter'
 
 export default function Basket({ open, setOpen }: OpenState) {
+
+  const { basketCosts, basketContents, removeProductFromBasket } = useContext(BasketContext) as BasketProductContextType
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -53,70 +57,40 @@ export default function Basket({ open, setOpen }: OpenState) {
 
                       <div className="mt-8">
                         <div className="flow-root">
-                          <ul className="-my-6 divide-y divide-gray-200">
-                            {productData.map((product) => (
-                              <li key={product.id} className="flex py-6">
-                                <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                  <img
-                                    src={product.image}
-                                    alt={product.description}
-                                    className="h-full w-full object-cover object-center"
-                                  />
-                                </div>
-
-                                <div className="ml-4 flex flex-1 flex-col">
-                                  <div>
-                                    <div className="flex justify-between text-base font-medium text-gray-900">
-                                      <h3>
-                                        {product.name}
-                                      </h3>
-                                      <p className="ml-4">{formatter.format(product.price)}</p>
-                                    </div>
-                                  </div>
-                                  <div className="flex flex-1 items-end justify-between text-sm">
-                                    {/* <p className="text-gray-500">Qty {product.quantity}</p> */}
-
-                                    <div className="flex">
-                                      <button
-                                        type="button"
-                                        className="font-medium text-chip-red hover:text-chip-darkred"
-                                      >
-                                        Remove
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </li>
-                            ))}
-                          </ul>
+                          <BasketProducts basketContents={basketContents} removeProductFromBasket={removeProductFromBasket} />
                         </div>
                       </div>
                     </div>
 
                     <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
+                      {basketCosts.discountsTotal > 0 &&
                       <div>
+                        <p></p>
                         <div className="flex justify-between text-base font-medium text-gray-900">
                           <p>Discounts Total</p>
-                          <p>- £262.00</p>
+                          <p>- {formatter.format(basketCosts.discountsTotal)}</p>
                         </div>
-                        <div className="flex justify-between mt-0.5 text-sm text-gray-500">
-                          <p>Pie &amp; Chips Meal Deal</p>
-                          <p>(2 x - £131.00)</p>
-                          <p>- £262.00</p>
-                        </div>
+                        {basketCosts?.discounts && basketCosts.discounts.map((discount: BasketDiscounts) => (
+                          <div key={discount.discountName} className="flex justify-between mt-0.5 text-sm text-gray-500">
+                            <p>{discount.discountName}</p>
+                            <p>({discount.discountQty} x - {formatter.format(discount.discountAmount)})</p>
+                            <p>- {formatter.format(discount.discountQty * discount.discountAmount)}</p>
+                          </div>
+                        ))}
                       </div>
+                      }
                       <div className="flex justify-between text-base font-medium text-gray-900 mt-4">
-                        <p>Subtotal</p>
-                        <p>£262.00</p>
+                        <p>Order Total</p>
+                        <p>{formatter.format(basketCosts.subtotal)}</p>
                       </div>
-                      <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+                      <p className="mt-0.5 text-sm text-gray-500">Delivery and service charges are added at checkout.</p>
                       <div className="mt-6">
-                        <a
-                          href="#"
-                          className="flex items-center justify-center rounded-md border border-transparent bg-chip-red px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-chip-darkred"
+                        <div
+
+                          className="flex items-center justify-center rounded-md border border-transparent bg-chip-red px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-chip-darkred cursor-not-allowed"
                         >
                           Checkout
-                        </a>
+                        </div>
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
